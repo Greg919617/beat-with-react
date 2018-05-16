@@ -15,7 +15,7 @@ import AudioPlayer from 'react-responsive-audio-player';
 import NavBar from '../components/navbar/NavBar';
 import Search from '../components/search/Search';
 //import Login from '../components/login-navbar/Login';
-
+//import Header from '../components/header/Header.js';
 
 
 
@@ -29,7 +29,6 @@ const songs = [
     {url: '/wanted.mp3', title: 'Wanted6'},
     {url: '/wanted.mp3', title: 'Wanted7'},
 ];
-
 
 
 
