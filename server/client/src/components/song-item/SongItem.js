@@ -29,7 +29,7 @@ class SongItem extends Component {
                     </List.Content>
                 </Grid.Column>
                 <Grid.Column width={1}>
-                    <List.Icon onClick={() => this.props.playsong({url:this.props.url, title: this.props.title})} style={{cursor: 'pointer'}} name='play' size='large' verticalAlign='middle'/>
+                    <List.Icon onClick={() => this.props.playsong({url:this.props.url, title: this.props.title})} style={{cursor: 'pointer'}} name='video play outline' size='large' verticalAlign='middle'/>
                 </Grid.Column>
                 <Grid.Column width={1}>
                     <List.Icon clickable style={{cursor: 'pointer'}} name='shopping cart' size='large' verticalAlign='middle'
