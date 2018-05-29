@@ -1,90 +1,95 @@
 // import React from 'react'
-import AppBar from 'material-ui/AppBar';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
-
-
-
-
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import FlatButton from 'material-ui/FlatButton';
-import Toggle from 'material-ui/Toggle';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
 //import Payments from './StripeBilling';
 
 
 
-class Login extends Component {
-    static muiName = 'FlatButton';
-  
-    render() {
-      return (
-        <FlatButton {...this.props} label="Login" />
-      );
-    }
-  }
-  
-  const Logged = (props) => (
-    <IconMenu
-      {...props}
-      iconButtonElement={
-        <IconButton><MoreVertIcon /></IconButton>
+import { Input, Menu, Modal, Segment, Image, Header, Button, Grid, Message, Form } from 'semantic-ui-react'
+
+class MenuExamplePointing extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <div>
+       
+       <Segment>
+       <Image src={'/images/trial.png'} size='medium' centered />
+        
+        </Segment>
+       
+        <Menu pointing>
+          <Modal trigger={<Button>Login</Button>}>
+          <style>{`
+      body > div,
+      body > div > div,
+      body > div > div > div.login-form {
+        height: 100%;
       }
-      targetOrigin={{horizontal: 'right', vertical: 'top'}}
-      anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+    `}</style>
+    <Grid
+      textAlign='center'
+      style={{ height: '100%',
+      backgroundColor: '#f5f5f5' 
+    }}
+      verticalAlign='middle'      
     >
-      <MenuItem primaryText="Subscribe" />
-      <MenuItem primaryText="Calender" />
-      <MenuItem primaryText="Sign out" />
-    </IconMenu>
-  );
-  
-  Logged.muiName = 'IconMenu';
-  
-  /**
-   * This example is taking advantage of the composability of the `AppBar`
-   * to render different components depending on the application state.
-   */
-  class AppBarExampleComposition extends Component {
-    state = {
-      logged: true,
-    };
-  
-    handleChange = (event, logged) => {
-      this.setState({logged: logged});
-    };
-  
-    render() {
-      return (
-        <div>
-          <Toggle
-            label="Logged"
-            defaultToggled={true}
-            onToggle={this.handleChange}
-            labelPosition="right"
-            style={{margin: 20}}
-          />
-          <AppBar
-            title="Lees Lights & Sounds"
-            iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-            iconElementRight={this.state.logged ? <Logged /> : <Login />}
-          />
-        </div>
-      );
-    }
+      <Grid.Column color='white' style={{ maxWidth: 450 }}>
+        <Header as='h2' color='white' textAlign='center'>
+          <Image src={'/images/trial.png'} />
+          {' '}Log-in to your account
+        </Header>
+        <Form size='large'>
+          <Segment stacked>
+            <Form.Input
+              fluid
+              icon='user'
+              iconPosition='left'
+              placeholder='E-mail address'
+            />
+            <Form.Input
+              fluid
+              icon='lock'
+              iconPosition='left'
+              placeholder='Password'
+              type='password'
+            />
+
+            <Button color='teal' fluid size='large'>Login</Button>
+          </Segment>
+        </Form>
+        <Message>
+          Need to sign up? <a href='#'>Register Now</a>
+        </Message>
+      </Grid.Column>
+    </Grid>
+
+        </Modal>
+
+
+
+
+
+          <Menu.Item name='Login' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item name='Package Discounts' active={activeItem === 'messages'} onClick={this.handleItemClick} />
+          <Menu.Item name='Coupons' active={activeItem === 'friends'} onClick={this.handleItemClick} />
+          <Menu.Menu position='right'>
+           
+          </Menu.Menu>
+        </Menu>
+      </div>
+    )
   }
-  
-  export default AppBarExampleComposition;
-
-//  const NavBar = () => <AppBar  id = "style" title="Lees Lights & Sounds" />;
+}
 
 
-// export default NavBar;
+export default MenuExamplePointing;
+
 
